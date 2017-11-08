@@ -1,0 +1,15 @@
+ create database SFacil;
+   create table sorteio(
+      idSorteio int primary key,
+	  lista varchar ,
+	  inicio varchar ,
+	  fim varchar ,
+      listaDesc varchar,
+      data varchar	  
+   );
+   
+   select * from sorteio;
+   
+   create sequence id_sorteio_seq;
+   alter table sorteio alter idSorteio set default nextval('id_sorteio_seq');
+   
