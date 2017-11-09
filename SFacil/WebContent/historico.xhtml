@@ -6,19 +6,74 @@
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-<h:head>
-    <meta charset="utf-8"/>
-    <title> SFacil</title>
-  </h:head>
-  <h:body>
-    <div>
-      <p >Histórico de Uso</p>
-    </div>
-     <ol>
-      <ui:repeat var="d" value="#{sorteiobean.listar}">     
-       <label>Inicio: </label>#{d.inicio}<label>Fim: </label>#{d.fim}<label>Sorteados: </label>#{d.lista} <label>Desconsiderados: </label>#{d.listaDesc}<label>Data: </label>#{d.data}
-    <br></br>
-    </ui:repeat>
-    </ol>
+	<h:head>
+
+    	<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+	
+		<title>SFacil</title>
+  
+		<!-- Bootstrap CSS -->
+		<link href="css/bootstrap.min.css" rel="stylesheet" />
+		<link href="css/estilos.css" rel="stylesheet" />
+		
+	</h:head>
+	
+  	<h:body>
+
+		<div class="container">
+			<div class="row">
+        		<div class="col-sm-12">
+        		
+        			<h1 class="text-center">Sorteie aqui!</h1>
+        			
+        			<div class="col-md-12">
+						<div class="panel panel-primary">
+						
+							<div class="panel-heading">
+								<h3 class="panel-title text-center">Histórico de uso</h3>
+							</div>
+						
+							<table class="table table-hover" id="dev-table">
+								<thead>
+									<tr>
+										<th class="col-md-1">Início</th>
+										<th class="col-md-1">Fim</th>
+										<th class="col-md-7">Sorteados</th>
+										<th class="col-md-2">Desconsiderados</th>
+										<th class="col-md-1">Data</th>
+									</tr>
+								</thead>
+								<ui:repeat var="d" value="#{sorteiobean.listar}">
+									<tbody>
+										<tr>
+											<td>#{d.inicio}</td>
+											<td>#{d.fim}</td>
+											<td>#{d.lista}</td>
+											<td>#{d.listaDesc}</td>
+											<td>#{d.data}</td>
+										</tr>
+									</tbody>
+								</ui:repeat>
+							</table>
+							
+						</div>
+					</div>
+					
+   				 </div>
+   				 
+   				 <div class="text-center">
+    				<a href="/SFacil/faces/SFacil.xhtml" class="btn btn-primary bot-2">Voltar</a>
+    			</div>
+   				 
+  		 	 </div>
+    	</div>
+    
+    	<!-- jQuery (necessario para os plugins Javascript do Bootstrap) -->
+		<script src="js/jquery.js"></script>
+		<script src="js/bootstrap.min.js"></script>  	
+  	
     </h:body>
+    
 </html>

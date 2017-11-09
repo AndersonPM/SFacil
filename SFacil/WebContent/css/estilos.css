@@ -1,0 +1,35 @@
+.cor-fundo {
+	background-color: #f4f4f4;
+}
+
+.bot {
+	min-width: 100px;
+}
+
+.bot-2 {
+	min-width: 205px;
+}
+
+.botLine {
+	margin-left: 5px;
+}
+
+.botColumn {
+	margin-top: 5px;
+}
+
+.centro {
+  height: 100%;
+  min-height: 100%;
+  display: -webkit-flex;*/
+  display: flex;*/
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;*/
+}
+
+.centered {
+    margin: 0 auto !important;
+    float: none !important;
+}
