@@ -32,14 +32,19 @@
             			<div class="panel-body">
 							
 							<h:form>
+							
 								<div class="form-group col-sm-4">
 									<label>Número inicial:</label>
-									<h:inputText styleClass="form-control" value="#{sorteiobean.inicio}"/>
+									<h:inputText styleClass="form-control" value="#{sorteiobean.inicio}">
+										<f:passThroughAttribute name="required" value="" />
+									</h:inputText>
 								</div>
 								
 								<div class="form-group col-sm-4">
 									<label>Número final:</label>
-									<h:inputText styleClass="form-control" value="#{sorteiobean.fim}"/>
+									<h:inputText styleClass="form-control" value="#{sorteiobean.fim}">
+										<f:passThroughAttribute name="required" value="" />
+									</h:inputText>
 								</div>
 								
 								<div class="form-group col-sm-4">
