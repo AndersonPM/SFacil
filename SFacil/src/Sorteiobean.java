@@ -15,8 +15,8 @@ import javafx.util.converter.LocalDateTimeStringConverter;
 @SessionScoped
 public class Sorteiobean {
 	private String idSorteio = null;
-	private String inicio;
-	private String fim;
+	private String inicio = "0";
+	private String fim = "0";
 	private String desc;
 	private List<String> lista = new ArrayList<>();
 	private List<String> listaDesc = new ArrayList<>();
@@ -28,12 +28,12 @@ public class Sorteiobean {
 	
 	public void limpar() {
 		this.idSorteio = null;
-		setInicio("");
-		setFim("");
-		setDesc("");
+		this.inicio = null;
+		this.fim = null;
+		this.desc = null;
 		this.lista = new ArrayList<>();
 		this.listaDesc = new ArrayList<>();
-		setTeste("");
+		this.teste = null;
 		this.cont = 0;
 	}
 
@@ -85,7 +85,14 @@ public class Sorteiobean {
 	}
 
 	public void setFim(String fim) {
-		this.fim = fim;
+		String x = Integer.toString(testeNumero(fim));
+		if (x.contains("-1")){
+			setTeste("Número final inválido");
+			this.fim = null;
+			
+		}else{
+		    this.fim = x;
+		}
 	}
 
 	public String getInicio() {
@@ -93,7 +100,13 @@ public class Sorteiobean {
 	}
 
 	public void setInicio(String inicio) {
-		this.inicio = inicio;
+		String x = Integer.toString(testeNumero(inicio));
+		if (x.contains("-1")){
+			setTeste("Número inicial inválido");
+			this.inicio = null;
+		}else{
+		    this.inicio = x;
+		}
 	}
 
 	public int testeNumero(String numeroTeste) {
@@ -107,16 +120,23 @@ public class Sorteiobean {
 	}
 
 	public void sortear() {
-		setNvezes();
-		if ((Integer.parseInt(getInicio()) >= Integer.parseInt(getFim()))){
-			setTeste("Número inicial deve ser menor que número final");
-		} else {
-			if (cont >= Nvezes) {
-				setTeste("Todos os números possiveis foram sorteados");
-			}else{
-			   aleatorio(testeNumero(inicio), testeNumero(fim));
-			}  
-		}
+		
+	  if ( getInicio() == null || getFim() == null){
+		    setInicio("0"); 
+		    setFim("0");
+	  }else{	
+		  this.teste = null;
+		  setNvezes();
+		  if ((Integer.parseInt(getInicio()) >= Integer.parseInt(getFim()))){
+			  setTeste("Número inicial deve ser menor que número final");
+		  } else {
+			  if (cont >= Nvezes) {
+				  setTeste("Todos os números possiveis foram sorteados");
+			  }else{
+			     aleatorio(testeNumero(inicio), testeNumero(fim));
+			  }  
+		  }
+	   }
 	}
 
 	public int aleatorio(int ini, int fim) {
